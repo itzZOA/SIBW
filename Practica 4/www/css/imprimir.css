@@ -1,0 +1,70 @@
+*{
+ 	margin:0;
+ 	padding:0;
+ 	box-sizing:border-box;
+ }
+ 
+ body{
+ 	font-family: 'Crimson Text';
+ }
+ 
+ .contenedor{
+ 	padding:60px 0;
+ 	width: 90%;
+ 	max-width:1000px;
+ 	margin: auto;
+ 	overflow: hidden;
+ }
+ 
+ .titulo {
+ 	color: #000;
+ 	font-size:70px;
+ 	text-align: center;
+ 	margin-bottom: 60px;
+ }
+ 
+ /*About us*/
+ 
+  .contenido-textos{
+ 	width: 48%;
+ 	margin-left: 5px;
+ }
+ 
+ .contenido-textos h3{
+ 	margin-top:15px;
+ 	margin-bottom: 7px;
+ 	font-size: 30px;
+ 	
+ }
+ 
+  .contenido-textos p{
+ 	margin-bottom: 7px;
+ 	text-align:justify;
+ 	padding: 0px 20px 0px 0px;
+ 	
+ 	
+ }
+ 
+ .imagen-about-us{
+ 	
+ 	width: 100%;
+ 	padding: 20px 0px 20px 0px;
+ 	filter: grayscale(100%);
+ }
+ 
+ .contenedor-sobre-personaje{
+ 	display:flex;
+ 	justify-content: space-evenly;
+ }
+ 
+.tabla{
+	width: 50%;
+	padding: 10px;
+	border: 2px solid black;
+	float: left;
+}
+
+.tabla img{
+	filter: grayscale(100%);
+}
+

@@ -1,0 +1,213 @@
+{% extends "plantilla.html" %} 
+{% block cabecera %}
+{{ parent() }}
+<link rel="stylesheet" href="css/personajes.css" >
+<link rel="stylesheet" href="css/comentarios.css" >
+<script type="text/javascript" src="java/comentarios.js"></script>
+{% endblock %}
+ {% block central %}
+
+<section class="contenedor sobre personaje">
+{%if user.rol == 3%}
+        <div class="editarEv">
+            <a href="editarEvento.php?evento={{evento['id']}}"><img src="photos/editar.png"/></a>
+        </div>
+        <div class="borrarEvento">
+        <form action="borrar.php" method="post" onsubmit="return confirmacion()">
+            <input type="text" name="registro" class="oculto" value="Eventos2">
+            <input type="text" name="id_evento" class="oculto" value="{{evento['id']}}">
+            <input type="text" name="id_comentario" class="oculto" value="{{comentarios[i]['id_comentario']}}">
+        
+                <button id="close-image"><img src="photos/borrar.png"/></button>
+        </div>
+        </form>
+    {%endif%}
+	
+			<h2 class="titulo"><font  color="{{ evento['colornom'] }}">{{ evento['nombre'] }}</font></h2><! #29FFC6 !>
+			<div class="contenedor-sobre-personaje">
+				<div class="contenido-textos">
+					<h3><strong>Introducción</strong></h3>
+					<p> {{ evento['intro'] }}</p>
+					<h3><strong>Personalidad</strong></h3>
+					<p>{{ evento['personalidad'] }}</p>
+				</div>
+					
+				<div class="tabla">
+					<h2> {{ evento['mote'] }} </h2><! The Windborne Bard !>
+						{%for i in 0..imagenes|length-1%}
+						<img src="{{imagenes[i]['ruta'] }}" alt="" class="imagen-about-us"> <! img/venti.png !>
+						{%endfor%}
+						
+			
+					<table border="1" bgcolor="{{ evento['color'] }}"> <! #BEFFED !>
+						<tr>
+							<th align="center" ><strong>Arma</strong></th>
+							<th align="center" bgcolor="#FFF">
+							<img src ="{{ evento['imgarma'] }}" width="30" height="30" alt=""/>{{ evento['arma'] }}</th> <! img/arcoicon.png !><! Arco !>
+						</tr>
+						
+						<tr>
+							<th align="center"><strong>Rareza</strong></th>
+							<th align="center" bgcolor="#FFF">
+							<img src ="img/5estrellas.png" width="30" height="30" alt=""/>Cinco</th> <! Cinco !>
+							
+						</tr>
+						
+						<tr>
+							<th align="center"><strong>Elemento</strong></th>
+							<th align="center" bgcolor="#FFF">
+							<img src ="{{ evento['imgelem'] }}" width="30" height="30" alt=""/>{{ evento['elemento'] }}</th> <! img/anemo.png !><! Anemo !>
+						</tr>
+					</table>
+					
+					<table border="1" bgcolor="{{ eventos[i]['color'] }}"> <! #BEFFED !>
+								
+						<tr>
+										
+							<td align="center"><strong>Sexo</strong></td>
+							<td align="center">{{ evento['sexo'] }}</td> <! Masculino !>
+						</tr>	
+									
+						<tr>
+							<td align="center"><strong>Cumpleaños</strong></td>
+							<td align="center">{{ evento['cumpleaños'] }}</td> <! 16 de Junio !>
+						</tr>
+								
+						<tr>
+							<td align="center"><strong>Constelacion</strong></td>
+							<td align="center">{{ evento['constelacion'] }}</td> <! Carmen Dei !>
+						</tr>
+									
+						<tr>
+							<td align="center"><strong>Nacion</strong></td>
+							<td align="center">{{ evento['nacion'] }}</td> <! Mondstadt !>
+						</tr>
+									
+						<tr>
+							<td align="center"><strong>Como se Consigue</strong></td>
+							<td align="center">{{ evento['consigue'] }}</td> <! Event Wish - Ballad in Goblets !>
+						</tr>
+									
+						<tr>
+							<td align="center"><strong>Fecha de Lanzamiento</strong></td>
+							<td align="center">{{ evento['fecha'] }}</td> <! 28 de Septiembre de 2020 ! >
+						</tr>
+					</table>
+				<aside>
+            <p>Imprimir Evento <a href="imprimir.php?ev={{evento['id']}}">Pulsa Aquí :D </a></p>
+        </aside> 
+				</div>
+			
+			
+			<div id="header">
+			<ul class="nav">
+				<li><a href="">Comentarios</a>
+					<ul>
+					
+					 <div id="comments">
+					 	{%for i in 0..comentarios|length-1%}
+                    
+					         <div class="container-comments">
+					      
+					        	<div class="comments">
+					        		<div class="photo-perfil">
+					        			<img src="img/perfil_jean.png" alt="">
+					        		</div>
+					        		<div class="info-comments">
+					        			<div class="header">
+					        				<h3>{{ comentarios[i]['nick'] }}, {{ comentarios[i]['fecha'] }} {{ comentarios[i]['hora'] }}</h3>
+					   
+					        			</div>
+					        			
+					        			<p> {{ comentarios[i]['comentario'] }}</p>
+					        			
+					        			<div class="footer">
+					        				<h5 class="request">Responder</h5>
+					        		
+					        			</div>
+					        		</div>
+					        	</div>
+					        	{%endfor%}
+					        </div>
+					        	
+					        </div>
+					       
+					       {%if user != "Empty"%}
+					       <div class="container-data">
+					        <div class="perfil-photo">
+					       	<img src="img/perfil_klee.png" alt="">
+					       
+					       </div>
+					       <div class="formulario">
+						<form id="formulario">
+                					<h3>¡Comenta con la Comunidad!</h3>
+                					<input type="text" name="id_evento" id="id_evento" value="{{evento['id']}}" class="oculto">
+                        				<input type="text" name="id_comentario" id="id_comentario" value="{{comentarios|length+1}}" class="oculto">
+                					<p>Nombre: {{user.nick}} </p>
+                					<input type="text" name="Nombre" id="nombre">
+                					<p>Correo</p>
+                					<input type="email" name="Correo" id="mail">
+                					<div class="mensaje">
+                						<p>Comentario:</p>
+                						<input type="textarea" name="Texto" id="texto" oninput="palabras_baneadas()">
+                						<p></p>
+                					
+                					</div>
+                					<div class="btn-comments">
+                						<input type="button" value="Enviar" onclick="validar_comentario()">
+                					</div>
+                				
+           						 </form>
+           						 {%else%}
+                   						 <div>
+                        						Debes estar registrado e iniciar sesión para poner un comentario.
+                    						 </div>
+                					 {%endif%}
+           						 
+           						 </div>
+           	
+               
+				
+	</div>
+	</div>
+
+						
+					</ul>
+				</li>
+			</ul>
+		</div>
+		</div>
+	
+		</section>
+
+
+{% endblock %}
+ {% block footer %}
+
+<div class="contenedor-footer">
+			<div class="content-foo">
+				<h4>Instagram</h4>
+				<a href="https://www.instagram.com/?hl=es"><img src="img/instagram.png" width="40" height="40" alt="" border=""></a>
+				
+			</div>
+			<div class="content-foo">
+				<h4>Twitter</h4>
+				<a href="https://twitter.com/"><img src="img/twitter.png" width="40" height="40"  alt="" border=""></a>
+			</div>
+			<div class="content-foo">
+				<h4>Facebook</h4>
+				<a href="https://es-es.facebook.com/"><img src="img/facebook.png" width="40" height="40"  alt="" border=""></a>
+				
+			</div>
+			<div class="content-foo">
+				<h4>Etiquetas</h4><br>
+
+        			<p>#{{etiquetas}}</p>
+				
+				
+			</div>
+</div>
+
+		<h2 class="titulo-final">&copy; Claudia Salado Méndez</h2>
+{% endblock %}
+

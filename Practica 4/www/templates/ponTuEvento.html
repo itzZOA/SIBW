@@ -1,0 +1,64 @@
+{% extends "plantilla.html" %}
+
+{%block cabecera%}
+    {{parent()}} 
+    <link href="css/comentarios.css" rel="stylesheet"> <
+{%endblock%}
+    
+{%block central%}
+
+<div class="formulario">
+    {% for e in errores %}
+        <p style="color: #f00;">{{e}}</p>
+    {% endfor %}
+
+    <h3>Crea un nuevo evento</h3>
+    <form action="ponTuEvento.php" method="post" enctype="multipart/form-data">
+        <h4>Primero, lo básico</h4>
+        <hr>
+        <p>Color deseado para el nombre del personaje</p>
+        <input type="text" name="colornom">
+        <p>Nombre del personaje</p>
+        <input type="text" name="nombre">
+        <p>Da una pequeña introducion del personaje</p>
+        <textarea name="intro" cols="100" rows="30"></textarea>
+        <p>Háblanos de su personalidad</p>
+        <textarea name="personalidad" cols="100" rows="30"></textarea>
+        <p>Mote del personaje</p>
+        <input type="text" name="mote">
+        <p>Color de la tabla</p>
+        <input type="text" name="color">
+        <p>Ruta imagen del arma que usa el personaje</br> (recuerda que todas las imagenes ya estan en la base de datos solo tienes que poner img/[nombredelarma]icon.png)</p>
+        <input type="text" name="imgarma">
+        <p>Nombre del arma</p>
+        <input type="text" name="arma">
+        <p>Ruta imagen del elemento del personaje</br> (recuerda que todas las imagenes ya estan en la base de datos solo tienes que poner img/[elemento].png)</p>
+        <input type="text" name="imgelem">
+        <p>Nombre del elemento</p>
+        <input type="text" name="elemento">
+        <p>Género del personaje</p>
+        <input type="text" name="sexo">
+        <p>Cumpleaños del personaje</p>
+        <input type="text" name="cumpleaños">
+        <p>Constelacion del personaje</p>
+        <input type="text" name="constelacion">
+        <p>Nacion a la que pertenece el personaje</p>
+        <input type="text" name="nacion">
+        <p>Como se consigue el personaje</p>
+        <input type="text" name="consigue">
+        <p>Fecha de lanzamiento del personaje</p>
+        <input type="text" name="fecha">
+        
+        <h4>Imagen</h4>
+        <hr>
+        <p>Imagen del personaje</p>
+        <input type="file" name="img" />
+        <h4>Unas cuantas etiquetas</h4>
+        <hr>
+        <input type="text" name="etiquetas">
+        <button type="submit">Crear evento</button>
+    </form>
+</div>
+
+{%endblock%}
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% block cabecera %}
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Genshin Guide</title>
+	<link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+	<link rel="stylesheet" href="css/estilos.css">
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
+</head>
+{% endblock %}
+<body>
+	<header>
+		<nav>
+		     <ul>
+			<li>
+				<a href="index.php">Inicio</a>
+			</li>
+			<li>
+				<a href="perfil.php">Perfil</a>
+			</li>
+			{%if user.rol == 2 or user.rol == 4%}
+			<li>
+                               <a href="panelComentarios.php" class="opcion">Modifica Comentarios!</a>
+                       </li>
+                       {%endif%}
+                       {%if user.rol == 3 or user.rol == 4 %}
+			<li>
+                               <a href="ponTuEvento.php" class="opcion">Postea un Evento!</a>
+                       </li>
+                       <li>
+                               <a href="panelGestionEventos.php" class="opcion">Modifica un Evento!</a>
+                       </li>
+                       {%endif%}
+                       {%if user.rol == 4%}
+                       <li>
+                           <a href="panelUsers.php" class="opcion">Modifica a los Usuarios!</a>
+                       </li>
+                       {%endif%}
+                       {%if user != "Empty"%}
+                           <p>¡Hola, {{user.nick}}! ({{user.rol}}). <a href="logout.php">Cierra la sesión</a></p>
+                       {%else%}
+                            <p>Hola, <a href="login.php">Inicia Sesión</a> o <a href="registro.php">Regístrate</a></p>
+                       {%endif%}
+                   </ul>          
+		</nav>
+		<section class="textos-header">
+			<h1>Genshin Impact</h1>
+			<h2>Fanart Guide</h2>
+			<div class="wave" style="height: 150px; overflow: hidden;" ><svg viewBox="0 	0 500 150" preserveAspectRatio="none" style="height: 100%; width: 				100%;"><path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path></svg>
+			</div>
+		</section>
+	</header>
+	<main>
+	{% block central %}
+		<p> parte central de la plantilla </p>	
+	{% endblock %}		
+	</main>
+	<footer>
+	{% block footer %}
+		
+	{% endblock %}
+	</footer>
+		
+</body>
+</html>
+

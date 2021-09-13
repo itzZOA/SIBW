@@ -1,0 +1,20 @@
+{% extends "plantilla.html" %}
+
+{%block cabecera%}
+    {{parent()}} 
+    <link href="estilos_css/cuerpo/estilo_eventos.css" rel="stylesheet"> <!-- Enlazamos con el archivo css -->  
+{%endblock%}
+    
+{%block central%}
+
+<div class="formulario">
+    <form action="registro.php" method="post">
+        <p>Usuario: <input type="text" name="nick" class="inputs"></p>
+        <p>Email: <input type="text" name="email" class="inputs"></p>
+        <p>Contraseña: <input type="password" name="password" class="inputs"></p>
+        <p><input type="submit" value="Registrate"></p>
+    </form>
+</div>
+
+{%endblock%}
+

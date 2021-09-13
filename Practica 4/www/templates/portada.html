@@ -1,0 +1,143 @@
+{% extends "plantilla.html" %} 
+
+{% block  central %}
+		<section class="contenedor sobre nosotros">
+			<a name="eventos"></a> 
+			<h2 class="titulo">Proximos Eventos</h2>
+			<div class="contenedor-sobre-nosotros">
+				<img src="img/evento.png" alt="" class="imagen-about-us">
+				<div class="contenido-textos">
+					<h3><span>1</span>Nuevo Evento Principal</h3>
+					<p>Disponible a partir del 19 de Marzo</br> ¿Han oido hablar del Festival de las Flores de Viento?</p>
+					<h3><span>2</span>Evento Web</h3>
+					<p>Del 16 al 27 de Marzo</br>
+					En toda la calle abunda el olor a comida deliciosa.</br>
+					La chef Xiangling ya no da abasto con tantos pedidos,</br>¿por qué no vas a echarle una mano?</p>
+				</div>
+			</div>
+		</section>
+		<section class="personajes">
+			<div class="contenedor">
+				<a name="personajes"></a> 
+				<h2 class="titulo">Personajes</h2>
+				<div class="galeria-port">
+				
+				{%for i in 0..eventos|length-1%}
+				
+				<!-- Venti -->
+					<div class="imagen-port">
+						<img src="{{eventos[i]['img']}}" alt="">
+						<p>{{eventos[i]['nombre']}}Hola</p>
+						<div class="hover-galeria">
+							<div class="anemo">
+								<a href="evento.php?ev={{eventos[i]['id']}}"><img src="{{eventos[i]['imgelem']}}" alt="" border=""></a>
+								<p>{{eventos[i]['nombre']}}</p>
+							</div>
+						</div>
+					</div>
+				{%endfor%}
+					
+				</div>
+			</div>
+		</section>
+		
+		<section class="artefactos">
+			<div class="contenedor">
+				<a name="artefactos"></a> 
+				<h2 class="titulo">Artefactos</h2>
+				<div class="cards">
+					<!-- Sombra Verde Esmeralda -->
+					<div class="card">
+						<img src="img/sombra.png" alt="">
+						<div class="contenido-texto-artefacto">
+							<h4> Sombra Verde Esmeralda </h4>
+							<p>Bonificación de daño Anemo +15%</p>
+						</div>
+					</div>
+					<!-- Furia del Trueno -->
+					<div class="card">
+						<img src="img/furia.png" alt="">
+						<div class="contenido-texto-artefacto">
+							<h4>Furia del Trueno</h4>
+							<p>Bonificación de daño Electro +15%</p>
+						</div>
+					</div>
+					<!-- Bruja Carmesi en Llamas -->
+					<div class="card">
+						<img src="img/bruja.png" alt="">
+						<div class="contenido-texto-artefacto">
+							<h4>Bruja Carmesí en Llamas</h4>
+							<p>Bonificación de daño Pyro +15%</p>
+						</div>
+					</div>
+					<!-- Petra Arcaica -->
+					<div class="card">
+						<img src="img/petra.png" alt="">
+						<div class="contenido-texto-artefacto">
+							<h4>Petra Arcaica</h4>
+							<p>Bonificación de daño Geo +15%</p>
+							
+							
+						</div>
+					</div>
+					<!-- Nomada del Invierno -->
+					<div class="card">
+						<img src="img/nomada.png" alt="">
+						<div class="contenido-texto-artefacto">
+							<h4>Nómada del Invierno </h4>
+							<p>Bonificación de daño Cryo +15%</p>
+						</div>
+					</div>
+					<!-- Corazon de las Profundidades -->
+					<div class="card">
+						<img src="img/corazon.png" alt="">
+						<div class="contenido-texto-artefacto">
+							<h4>Corazón de las Profundidades</h4>
+							<p>Bonificación de daño Hydro +15%</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="about-services">
+			<div class="contenedor">
+				<a name="armas"></a> 
+				<h2 class="titulo">Nuevas Armas</h2>
+				<div class="servicio-cont">
+					<div class="servicio-ind">
+						<img src="img/lanza.png" alt="">
+						<h3>Hálcon de Jade<h3>
+						<p>Su ataque básico varia entre 133-674 según el nivel</br></br>Su stat secundario es la probabilidad de crítico</p>
+					</div>
+					<div class="servicio-ind">
+						<img src="img/espada.png" alt="">
+						<h3>Hoja Afilada Celestial<h3>
+						<p> Su ataque básico varia entre 122-608 según el nivel</br></br>Su stat secundario es la recarga de energia</p>
+					</div>
+					<div class="servicio-ind">
+						<img src="img/arco.png" alt="">
+						<h3>Arco de Amos<h3>
+						<p>Su ataque básico varia entre 122-608 según el nivel</br></br>Su stat secundario es un aumento porcentual de ataque</p>
+					</div>
+				</div>
+			</div>
+		</section>
+{% endblock %}
+{% block  footer %}
+<div class="contenedor-footer">
+			<div class="content-foo">
+				<h4>Phone</h4>
+				<p>664004025<p>
+			</div>
+			<div class="content-foo">
+				<h4>Email</h4>
+				<p>e.claudiasalado@correo.ugr.es<p>
+			</div>
+			<div class="content-foo">
+				<h4>Location</h4>
+				<p>Granada (España)<p>
+			</div>
+		</div>
+		<h2 class="titulo-final">&copy; Claudia Salado Méndez</h2>
+{% endblock %}
+

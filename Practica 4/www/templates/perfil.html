@@ -1,0 +1,28 @@
+{% extends "plantilla.html" %}
+
+{%block cabecera%}
+    {{parent()}} 
+    <link href="css/personajes.css" rel="stylesheet"> 
+{%endblock%}
+    
+{%block central%}
+
+{%if errors != "Empty"%}
+    <p>***{{errors}}***</p>
+{%endif%}
+
+<div class="formulario">
+    <form action="perfil.php" method="post">
+        <p>Usuario: <input type="text" name="nick" class="inputs" value="{{user.nick}}"></p>
+        <p>Rol: <input type="text" name="rol" class="inputs" readonly value="{{user.rol}}"></p>
+        <p>Email: <input type="text" name="email" class="inputs" value="{{user.email}}"></p>
+        <p></p>
+        <h4>Cambio de contraseña</h4>
+        <p>Contraseña antigua: <input type="password" name="oldPass"></p>
+        <p>Contraseña nueva: <input type="password" name="newPass"></p>
+        <p>Repite la contraseña <input type="password" name="repeatPass"></p>
+        <p><input type="submit" value="Modificar datos"></p>
+    </form>
+</div>
+
+{%endblock%}

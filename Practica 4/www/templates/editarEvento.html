@@ -1,0 +1,63 @@
+{% extends "plantilla.html" %}
+
+{%block cabecera%}
+    {{parent()}} 
+    <link href="css/comentarios.css" rel="stylesheet">
+{%endblock%}
+{%block central%}
+
+<div class="formulario">
+    {% for e in errores %}
+        <p style="color: #f00;">{{e}}</p>
+    {% endfor %}
+
+    <h3>Edita un evento</h3>
+    <form action="editarEvento.php?evento={{evento['id']}}" method="post" enctype="multipart/form-data">
+        <h4>Informacion sobre el Personaje</h4>
+        <hr>
+        <input type="text" name="id" value="{{evento['id']}}" class="oculto">
+        <p>Color deseado para el nombre del personaje</p>
+        <input type="text" name="colornom" value="{{evento['colornom']}}">
+        <p>Nombre del personaje</p>
+        <input type="text" name="nombre" value="{{evento['nombre']}}">
+        <p>Da una pequeña introducion del personaje</p>
+        <textarea name="intro" cols="100" rows="30">{{evento['intro']}}</textarea>
+        <p>Háblanos de su personalidad</p>
+        <textarea name="personalidad" cols="100" rows="30">{{evento['personalidad']}}</textarea>
+        <p>Mote del personaje</p>
+        <input type="text" name="mote" value="{{evento['mote']}}">
+        <p>Ruta imagen del arma que usa el personaje</br> (recuerda que todas las imagenes ya estan en la base de datos solo tienes que poner img/[nombredelarma]icon.png)</p>
+        <input type="text" name="imgarma" value="{{evento['imgarma']}}">
+        <p>Nombre del arma</p>
+        <input type="text" name="arma" value="{{evento['arma']}}">
+        <p>Ruta imagen del elemento del personaje</br> (recuerda que todas las imagenes ya estan en la base de datos solo tienes que poner img/[elemento].png)</p>
+        <input type="text" name="imgelem" value="{{evento['imgelem']}}">
+        <p>Nombre del elemento</p>
+        <input type="text" name="elemento" value="{{evento['elemento']}}">
+        <p>Género del personaje</p>
+        <input type="text" name="sexo" value="{{evento['sexo']}}">
+        <p>Cumpleaños del personaje</p>
+        <input type="text" name="cumpleaños" value="{{evento['cumpleaños']}}">
+        <p>Constelacion del personaje</p>
+        <input type="text" name="constelacion" value="{{evento['constelacion']}}">
+        <p>Nacion a la que pertenece el personaje</p>
+        <input type="text" name="nacion" value="{{evento['nacion']}}">
+        <p>Como se consigue el personaje</p>
+        <input type="text" name="consigue" value="{{evento['consigue']}}">
+        <p>Fecha de lanzamiento del personaje</p>
+        <input type="text" name="fecha" value="{{evento['fecha']}}">
+        <p>Imagen del personaje</p>
+        <img src="{{evento['img']}}">
+        <input type="file" name="img" />
+        <h4>Añade etiquetas</h4>
+        <hr>
+        <input type="text" name="etiquetas" value="{{etiquetas}}">
+        <p> </p>
+        <button type="submit">Editar evento</button>
+    </form>
+</div>
+
+{%endblock%}
+
+{%block footer%}
+{%endblock%}

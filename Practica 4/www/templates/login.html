@@ -1,0 +1,26 @@
+{% extends "plantilla.html" %}
+
+{%block cabecera%}
+    {{parent()}} 
+    <link href="css/personajes.css" rel="stylesheet"> 
+{%endblock%}
+    
+{%block central%}
+
+<div class="formulario">
+    {%if error == 1%}
+    <div class="error">
+        <p>¡Usuario o Contraseña Incorrectos! ¡Inténtalo de nuevo!</p>
+    </div>
+    {%endif%}
+    
+    <form action="login.php" method="post">
+        <p>Usuario: <input type="text" name="nick" class="inputs"></p>
+        <p>Contraseña: <input type="password" name="password" class="inputs"></p>
+        <p><input type="submit" value="Inicia sesión"></p>
+    </form>
+    
+    <div class="relleno"></div>
+    </div>
+
+{%endblock%}

@@ -1,0 +1,80 @@
+{% extends "plantilla.html" %}
+
+{%block cabecera%}
+    {{parent()}} 
+    <link href="css/personajes.css" rel="stylesheet"> 
+{%endblock%}
+
+{%block auxiliar%}
+{%endblock%}
+    
+{%block central%}
+
+<div class="tablas">
+    <p>
+        ¿Quieres añadir un personaje?
+        <a href="ponTuEvento.php">¡Añadelo!</a>
+    </p>
+    <table class="tabla">
+        <tr>
+            <th>ID</th>
+            <th>Imagen</th>
+            <th>Color Nombre</th>
+            <th>Nombre</th>
+            <th>Introduccion</th>
+            <th>Personalidad</th>
+            <th>Mote</th>
+            <th>Color</th>
+            <th>Imagen Arma</th>
+            <th>Arma</th>
+            <th>Imagen Elemento</th>
+            <th>Elemento</th>
+            <th>Sexo</th>
+            <th>Cumpleaños</th>
+            <th>Constelacion</th>
+            <th>Nacion</th>
+            <th>Consigue</th>
+            <th>Fecha</th>
+            <th>Operaciones</th>
+        </tr>
+        {%for i in 0..eventos|length-1%}
+        <tr>
+            <td>{{eventos[i]['id']}}</td>
+            <td class="imagen"><img src="{{eventos[i]['img']}}"></td>
+            <td>{{eventos[i]['colornom']}}</td>
+            <td>{{eventos[i]['nombre']}}</td>
+            <td>{{eventos[i]['intro']}}</td>
+            <td>{{eventos[i]['personalidad']}}</td>
+            <td>{{eventos[i]['mote']}}</td>
+            <td>{{eventos[i]['color']}}</td>
+            <td>{{eventos[i]['imgarma']}}</td>
+            <td>{{eventos[i]['arma']}}</td>
+            <td>{{eventos[i]['imgelem']}}</td>
+            <td>{{eventos[i]['elemento']}}</td>
+            <td>{{eventos[i]['sexo']}}</td>
+            <td>{{eventos[i]['cumpleaños']}}</td>
+            <td>{{eventos[i]['constelacion']}}</td>
+            <td>{{eventos[i]['nacion']}}</td>
+            <td>{{eventos[i]['consigue']}}</td>
+            <td>{{eventos[i]['fecha']}}</td>
+            <td>
+                <a href="editarEvento.php?evento={{eventos[i]['id']}}">Editar</a>
+                <form action="borrar.php" method="post" onsubmit="return confirmacion()">
+                    <input type="text" name="registro" class="oculto" value="Eventos">
+                    <input type="text" name="idEv" class="oculto" value="{{eventos[i]['id']}}">
+                    <button type="submit">Borrar</button>
+                </form>
+                <form action="addImagen.php" method="post" enctype="multipart/form-data">
+                    <input type="text" name="idEv" class="oculto" value="{{eventos[i]['id']}}">
+                    <input type="file" name="imagensubir" />
+                    <button type="submit">Subir</button>
+                </form>
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+</div>
+
+{%endblock%}
+
+

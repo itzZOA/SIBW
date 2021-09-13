@@ -1,0 +1,27 @@
+{% extends "plantilla.html" %}
+
+{%block cabecera%}
+    {{parent()}} 
+    <link href="css/comentarios.css" rel="stylesheet">
+{%endblock%}
+    
+{%block central%}
+
+<div class="formulario">
+    <p>
+        Editando comentario de {{comentario['nick']}}, escrito originalmente el {{comentario['fecha']}} a las {{comentario['hora']}}
+    </p>
+    <form action="editarComentario.php" method="post">
+        <input type="text" name="id_evento" class="oculto" value="{{comentario['id_evento']}}">
+        <input type="text" name="id_comentario" class="oculto" value="{{comentario['id_comentario']}}">
+        <p></p>
+        <textarea name="comentario" cols="30" rows="10">{{comentario['comentario']}}</textarea>
+        <p></p>
+        <button type="submit">Editar comentario</button>
+    </form>
+</div>
+
+{%endblock%}
+
+{%block footer%}
+{%endblock%}

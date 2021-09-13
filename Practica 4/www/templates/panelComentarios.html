@@ -1,0 +1,43 @@
+{% extends "plantilla.html" %}
+
+{%block cabecera%}
+    {{parent()}} 
+    <link href="css/eventos.css" rel="stylesheet"> 
+    <link href="css/comentarios.css" rel="stylesheet"> 
+    <script src="java/eliminar.js"></script>
+{%endblock%}
+
+{%block central%}
+
+<div class="tablas">
+    <table class="tabla">
+        <tr>
+            <th>Evento</th>
+            <th>Nombre</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Comentario</th>
+            <th>Operaciones</th>
+        </tr>
+        {%for i in 0..comentarios|length-1%}
+        <tr>
+            <td><a href="evento.php?ev={{comentarios[i]['id']}}">{{comentarios[i]['id']}}</a></td>
+            <td>{{comentarios[i]['nombre']}}</td>
+            <td>{{comentarios[i]['fecha']}}</td>
+            <td>{{comentarios[i]['hora']}}</td>
+            <td>{{comentarios[i]['comentario']}}</td>
+            <td>
+            <a href="editarComentario.php?evento={{comentarios[i]['id']}}&comm={{comentarios[i]['id_comentario']}}">Editar</a>
+            <form action="borrar.php" method="post" onsubmit="return confirmacion()">
+                <input type="text" name="registro" class="oculto" value="Comentarios">
+                <input type="text" name="id_evento" class="oculto" value="{{comentarios[i]['id']}}">
+                <input type="text" name="id_comentario" class="oculto" value="{{comentarios[i]['id_comentario']}}">
+                <button type="submit">Borrar</button>
+            </form>
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+</div>
+
+{%endblock%}
