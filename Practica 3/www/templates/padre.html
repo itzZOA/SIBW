@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% block cabecera %}
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Genshin Guide</title>
+	<link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+	<link rel="stylesheet" href="css/estilos.css">
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
+</head>
+{% endblock %}
+<body>
+	<header>
+		<nav>
+			<a href="pagina.html">Inicio</a>
+			<a href="#eventos">Proximos Eventos</a>
+			<a href="#personajes">Personajes</a>
+			<a href="#artefactos">Artefactos</a>
+			<a href="#armas">Nuevas Armas</a>
+		</nav>
+		<section class="textos-header">
+			<h1>Genshin Impact</h1>
+			<h2>Fanart Guide</h2>
+			<div class="wave" style="height: 150px; overflow: hidden;" ><svg viewBox="0 	0 500 150" preserveAspectRatio="none" style="height: 100%; width: 				100%;"><path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path></svg>
+			</div>
+		</section>
+	</header>
+	<main>
+	{% block central %}
+		<p> parte central de la plantilla </p>	
+	{% endblock %}		
+	</main>
+	<footer>
+	{% block footer %}
+		
+	{% endblock %}
+	</footer>
+		
+</body>
+</html>
+

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Genshin Guide</title>
+	<link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+	<link rel="stylesheet" href="css/imprimir.css" >
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
+</head>
+<body>
+	<main>
+		<section class="contenedor sobre personaje">
+			<h2 class="titulo"><font  color= "negro">{{ evento['nombre'] }}</font></h2><! #29FFC6 !>
+			<div class="contenedor-sobre-personaje">
+				<div class="contenido-textos">
+					<h3><strong>Introducción</strong></h3>
+					<p> {{ evento['intro'] }}</p>
+					<h3><strong>Personalidad</strong></h3>
+					<p>{{ evento['personalidad'] }}</p>
+				</div>
+					
+				<div class="tabla">
+					<h2> {{ evento['mote'] }} </h2><! The Windborne Bard !>
+						<img src="{{ evento['img'] }}" alt="" class="imagen-about-us"> <! img/venti.png !>
+			
+					<table border="1" bgcolor=""> <! #BEFFED !>
+						<tr>
+							<th align="center" ><strong>Arma</strong></th>
+							<th align="center" bgcolor="#FFF">
+							<img src ="{{ evento['imgarma'] }}" width="30" height="30" alt=""/>{{ evento['arma'] }}</th> <! img/arcoicon.png !><! Arco !>
+						</tr>
+						
+						<tr>
+							<th align="center"><strong>Rareza</strong></th>
+							<th align="center" bgcolor="#FFF">
+							<img src ="img/5estrellas.png" width="30" height="30" alt=""/>Cinco</th> <! Cinco !>
+							
+						</tr>
+						
+						<tr>
+							<th align="center"><strong>Elemento</strong></th>
+							<th align="center" bgcolor="#FFF">
+							<img src ="{{ evento['imgelem'] }}" width="30" height="30" alt=""/>{{ evento['elemento'] }}</th> <! img/anemo.png !><! Anemo !>
+						</tr>
+					</table>
+					
+					<table border="1" bgcolor=""> <! #BEFFED !>
+								
+						<tr>
+										
+							<td align="center"><strong>Sexo</strong></td>
+							<td align="center">{{ evento['sexo'] }}</td> <! Masculino !>
+						</tr>	
+									
+						<tr>
+							<td align="center"><strong>Cumpleaños</strong></td>
+							<td align="center">{{ evento['cumpleaños'] }}</td> <! 16 de Junio !>
+						</tr>
+								
+						<tr>
+							<td align="center"><strong>Constelacion</strong></td>
+							<td align="center">{{ evento['constelacion'] }}</td> <! Carmen Dei !>
+						</tr>
+									
+						<tr>
+							<td align="center"><strong>Nacion</strong></td>
+							<td align="center">{{ evento['nacion'] }}</td> <! Mondstadt !>
+						</tr>
+									
+						<tr>
+							<td align="center"><strong>Como se Consigue</strong></td>
+							<td align="center">{{ evento['consigue'] }}</td> <! Event Wish - Ballad in Goblets !>
+						</tr>
+									
+						<tr>
+							<td align="center"><strong>Fecha de Lanzamiento</strong></td>
+							<td align="center">{{ evento['fecha'] }}</td> <! 28 de Septiembre de 2020 ! >
+						</tr>
+					</table>
+				</div>
+			
